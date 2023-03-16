@@ -23,7 +23,7 @@
             width: 2px;
             height: 2px;
             background-color: #fff;
-            opacity: 0.8;
+            opacity: 1;
         }
 
         .text-container {
@@ -62,7 +62,7 @@
         <p></p>
     </div>
     <script>
-        const numSquares = 3000;
+        const numSquares = 2500;
         let centerX = window.innerWidth / 2;
         let centerY = window.innerHeight / 2;
 
@@ -86,9 +86,9 @@
         function init() {
             for (let i = 0; i < numSquares; i++) {
                 const square = createSquare();
-                const radius = 150 + Math.random() * 200; // 150 200
-                const angle = Math.random() * 2 * Math.PI;
-                const speed = 0.001 + Math.random() * 0.01;
+                const radius = 100 + Math.random() * 200; // 150 200
+                const angle = Math.random() * 2 * Math.PI; //2
+                const speed = 0.005 + Math.random() * 0.01;
                 animateSquare(square, radius, angle, speed);
             }
         }
