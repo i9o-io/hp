@@ -7,14 +7,105 @@
     <title>i9o</title>
     <link rel="icon" type="image/png" href="icon.png" sizes="152x152" />
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #000;
+            position: relative;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        .square {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: #fff;
+            opacity: 0.8;
+        }
+
+        .text-container {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            text-align: right;
+        }
+
+        .title {
+            font-size: 48px;
+            color: #fff;
+            margin: 0;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-size: 24px;
+            color: #fff;
+            margin: 0;
+        }
+
+        p {
+          font-size: 24px;
+          color: #fff;
+          margin: 0;
+        }
+
+    </style>
+
 </head>
 <body>
-    <h1>i9o</h1>
-    <p>Under construction....</p>
-    <p>230316</p>
-    
-    
+    <div class="text-container">
+        <h1 class="title">i9o</h1>
+        <p class="subtitle">i9o is memory company</p>
+        <p></p>
+    </div>
+    <script>
+        const numSquares = 3000;
+        let centerX = window.innerWidth / 2;
+        let centerY = window.innerHeight / 2;
 
+        function createSquare() {
+            const square = document.createElement('div');
+            square.classList.add('square');
+            document.body.appendChild(square);
+            return square;
+        }
+
+        function animateSquare(square, radius, angle, speed) {
+            const x = centerX + radius * Math.cos(angle);
+            const y = centerY + radius * Math.sin(angle);
+            square.style.transform = `translate(${x}px, ${y}px)`;
+
+            requestAnimationFrame(() => {
+                animateSquare(square, radius, angle + speed, speed);
+            });
+        }
+
+        function init() {
+            for (let i = 0; i < numSquares; i++) {
+                const square = createSquare();
+                const radius = 150 + Math.random() * 200; // 150 200
+                const angle = Math.random() * 2 * Math.PI;
+                const speed = 0.001 + Math.random() * 0.01;
+                animateSquare(square, radius, angle, speed);
+            }
+        }
+
+        function updateCenter() {
+            centerX = window.innerWidth / 2;
+            centerY = window.innerHeight / 2;
+            requestAnimationFrame(updateCenter);
+        }
+
+        init();
+        updateCenter();
+    
+    </script>
+
+    <!-- 
     <script src="main.js"></script>
+    -->
 </body>
 </html>
