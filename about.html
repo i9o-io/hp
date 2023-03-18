@@ -20,8 +20,8 @@
 
 
         #animation-container {
-            position: absolute;
-            top: 50%; /* 50 80%*/
+            position: fixed;
+            top: 100%; /* 50 80%*/
             left: 0;
             transform: translateY(-50%);
             margin: 0;
@@ -35,10 +35,11 @@
         /**/
 
         .square {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            opacity: 0.9;
+            position: fixed;
+            width: 2px;
+            height: 2px;
+            background-color: #fff;
+            opacity: 1;
         }
 
         .text-container {
@@ -97,7 +98,7 @@
         }
 
         p {
-            font-size: 15px;
+            font-size: 16px;
             margin-top: 15px;
             margin-bottom: px;
             margin-right: -10px;
@@ -146,110 +147,45 @@
     </div>
 
     <script>
-        const canvas = document.createElement('canvas');
+    const numSquares = 5000;
+    let centerX = window.innerWidth / 2;
+    let centerY = window.innerHeight / 2;
 
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+    function createSquare() {
+        const square = document.createElement('div');
+        square.classList.add('square');
+        document.body.appendChild(square);
+        return square;
+    }
 
-        document.body.appendChild(canvas);
-        const ctx = canvas.getContext('2d');
+    function animateSquare(square, radius, angle, speed) {
+        const x = centerX + radius * Math.cos(angle);
+        const y = centerY + radius * Math.sin(angle);
+        square.style.transform = `translate(${x}px, ${y}px)`;
 
-        const squareSize = 1;
-        const squares = [];
-        const squareCount = 10000;
+        requestAnimationFrame(() => {
+            animateSquare(square, radius, angle + speed, speed);
+        });
+    }
 
-        class Square {
-        constructor(x, y, vx, vy) {
-            this.x = x;
-            this.y = y;
-            this.vx = vx;
-            this.vy = vy;
+    function init() {
+        for (let i = 0; i < numSquares; i++) {
+            const square = createSquare();
+            const radius = 500 + Math.random() * 30; // 150 200  200 100
+            const angle = Math.random() * 9 * Math.PI; //2 a
+            const speed = 0.001 + Math.random() * 0.002;
+            animateSquare(square, radius, angle, speed);
         }
+    }
 
-        update() {
-            this.x += this.vx;
-            this.y += this.vy;
+    function updateCenter() {
+        centerX = window.innerWidth / 1;
+        centerY = window.innerHeight / 1;
+        requestAnimationFrame(updateCenter);
+    }
 
-            if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
-            this.x = Math.random() * canvas.width;
-            this.y = Math.random() * canvas.height;
-            }
-        }
-
-        draw() {
-            ctx.fillStyle = 'white';
-            ctx.fillRect(this.x, this.y, squareSize, squareSize);
-        }
-        }
-
-        for (let i = 0; i < squareCount; i++) {
-        const x = Math.random() * canvas.width;
-        const y = Math.random() * canvas.height;
-        const vx = (Math.random() * 2 - 1) * 100;
-        const vy = (Math.random() * 2 - 1) * 1;
-        squares.push(new Square(x, y, vx, vy));
-        }
-
-        function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        for (const square of squares) {
-            square.update();
-            square.draw();
-        }
-
-        setInterval(function() {
-         var style = document.getElementById('style');
-         var href = style.href.split('?')[0];
-         style.href = href + '?v=' + Math.random();
-        }, 1000);
-
-        requestAnimationFrame(animate);
-        }
-
-        animate();
-
-        function onResize() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        
-            for (let i = 0; i < squareCount; i++) {
-            squares[i].x = Math.random() * canvas.width;
-            squares[i].y = Math.random() * canvas.height;
-            }
-
-        }
-
-        window.addEventListener('resize', onResize);
-
-        function resetSquares() {
-        squares.length = 0;
-
-        for (let i = 0; i < squareCount; i++) {
-            const x = Math.random() * (canvas.width + window.pageXOffset);
-            const y = Math.random() * (canvas.height + window.pageYOffset);
-            const vx = (Math.random() * 2 - 1) * 0.5;
-            const vy = (Math.random() * 2 - 1) * 0.5;
-            squares.push(new Square(x, y, vx, vy));
-        }
-        }
-
-        function onResize() {
-        canvas.width = window.innerWidth + window.pageXOffset;
-        canvas.height = window.innerHeight + window.pageYOffset;
-        resetSquares();
-        }
-
-        function onScroll() {
-        canvas.style.left = `${window.pageXOffset}px`;
-        canvas.style.top = `${window.pageYOffset}px`;
-        resetSquares();
-        }
-
-        window.addEventListener('resize', onResize);
-        window.addEventListener('scroll', onScroll);
-
-
+    init();
+    updateCenter();
     </script>
 </body>
 </html>
