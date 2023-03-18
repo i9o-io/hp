@@ -83,7 +83,7 @@
             margin-right: 0;
             margin-left: 0;
             color: #fff;
-            font-weight:100;
+            font-weight: 100;
         }
 
     </style>
@@ -115,7 +115,7 @@
             const startY = Math.random() * (animationContainer.offsetHeight - 2);
             square.style.top = `${startY}px`;
             square.style.left = '0px';
-            const duration = Math.random() *  + 2;
+            const duration = Math.random() * 5 + 1;
             square.style.transition = `left ${duration}s linear`;
 
             setTimeout(() => {
@@ -124,12 +124,12 @@
 
             setTimeout(() => {
                 animationContainer.removeChild(square);
-            }, duration * 1000);
+            }, duration * 5000);
         }
 
         function generateSquares() {
             createSquare();
-            setTimeout(generateSquares, 0.01); //0.000001
+            setTimeout(generateSquares, 0.001); //0001
         }
 
         generateSquares();
