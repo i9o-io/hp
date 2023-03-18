@@ -15,7 +15,6 @@
             height: 100%;
             margin: 0;
             font-family: Arial, sans-serif;
-            z-index: 0;
             background-color: black;
         }
 
@@ -27,7 +26,7 @@
             transform: translateY(-50%);
             margin: 0;
             overflow: hidden;
-            height: 100%; /* 50 400px*/
+            height: 50%; /* 50 400px*/
             width: 100%;
             background-color: black;
             z-index: -2;
@@ -100,7 +99,7 @@
         p {
             font-size: 15px;
             margin-top: 15px;
-            margin-bottom: -5px;
+            margin-bottom: px;
             margin-right: -10px;
             margin-left: 15px;
             color: #fff;
@@ -146,11 +145,12 @@
         </p>
     </div>
 
-    <div id="animation-container"></div>
     <script>
         const canvas = document.createElement('canvas');
+
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
+
         document.body.appendChild(canvas);
         const ctx = canvas.getContext('2d');
 
@@ -212,14 +212,42 @@
         function onResize() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
+        
+            for (let i = 0; i < squareCount; i++) {
+            squares[i].x = Math.random() * canvas.width;
+            squares[i].y = Math.random() * canvas.height;
+            }
 
-        for (let i = 100; i < squareCount; i++) {
-        squares[i].x = Math.random() * canvas.width;
-        squares[i].y = Math.random() * canvas.height;
-        }
         }
 
         window.addEventListener('resize', onResize);
+
+        function resetSquares() {
+        squares.length = 0;
+
+        for (let i = 0; i < squareCount; i++) {
+            const x = Math.random() * (canvas.width + window.pageXOffset);
+            const y = Math.random() * (canvas.height + window.pageYOffset);
+            const vx = (Math.random() * 2 - 1) * 0.5;
+            const vy = (Math.random() * 2 - 1) * 0.5;
+            squares.push(new Square(x, y, vx, vy));
+        }
+        }
+
+        function onResize() {
+        canvas.width = window.innerWidth + window.pageXOffset;
+        canvas.height = window.innerHeight + window.pageYOffset;
+        resetSquares();
+        }
+
+        function onScroll() {
+        canvas.style.left = `${window.pageXOffset}px`;
+        canvas.style.top = `${window.pageYOffset}px`;
+        resetSquares();
+        }
+
+        window.addEventListener('resize', onResize);
+        window.addEventListener('scroll', onScroll);
 
 
     </script>
