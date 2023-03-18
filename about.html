@@ -18,6 +18,13 @@
             z-index: 0;
         }
 
+        canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        }
+
+
 
         #animation-container {
             position: absolute;
@@ -209,6 +216,11 @@
         function onResize() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
+
+        for (let i = 0; i < squareCount; i++) {
+        squares[i].x = Math.random() * canvas.width;
+        squares[i].y = Math.random() * canvas.height;
+        }
         }
 
         window.addEventListener('resize', onResize);
