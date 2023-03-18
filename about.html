@@ -195,10 +195,24 @@
             square.draw();
         }
 
+        setInterval(function() {
+         var style = document.getElementById('style');
+         var href = style.href.split('?')[0];
+         style.href = href + '?v=' + Math.random();
+        }, 1000);
+
         requestAnimationFrame(animate);
         }
 
         animate();
+
+        function onResize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', onResize);
+
 
     </script>
 </body>
