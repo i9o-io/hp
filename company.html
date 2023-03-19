@@ -11,7 +11,6 @@
         body {
             margin: 0;
             background-color: black;
-            overflow: hidden;
         }
         .particle {
             position:absolute;
@@ -184,8 +183,17 @@
             requestAnimationFrame(animate);
         }
 
+        function updateCenter() {
+        centerX = window.innerWidth / 1;
+        centerY = window.innerHeight / 1;
+        requestAnimationFrame(updateCenter);
+        }
+
+        updateCenter();
+
         createParticles();
         animate();
+
     </script>
 </body>
 </html>
