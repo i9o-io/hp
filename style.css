@@ -7,8 +7,11 @@ body {
     overflow: hidden;
 }
 .title-image{
+    position: absolute;
     width:200px;
     height:200px;
+    top:0;
+    right:0;
 }
 .square {
     position: absolute;
@@ -20,7 +23,9 @@ body {
 
 .text-container {
     position: absolute;
-    margin-left:32px;
+    margin-right:32px;
+    right:0;
+    text-align: right;
 }
 
 .title {
