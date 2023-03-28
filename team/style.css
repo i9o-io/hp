@@ -1,0 +1,78 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+#animation-container {
+    position: absolute;
+    top: 50%; /* 50 80%*/
+    left: 0;
+    transform: translateY(-50%);
+    margin: 0;
+    overflow: hidden;
+    height: 100%; /* 50 400px*/
+    width: 100%;
+    background-color: black;
+    z-index: -1;
+}
+
+/**/
+
+.square {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: white;
+    opacity: 0.9;
+}
+
+.text-container {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    text-align: right;
+}
+
+.title {
+    font-size: 100px; /* 48 */
+    color: #fff;
+    margin: 0;
+}
+
+.iori2 {
+    font-size: 20px;
+}
+
+.subtitle {
+    font-size: 30px;
+    color: #fff;
+    margin: 0;
+    font-weight: bold;
+}
+
+a {
+  font-size: 15px;
+  color: #fff;
+  font-weight: bold;
+}
+
+h3 {
+    font-size: 25px;
+    color: #fff;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: -30px;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+h4 {
+    font-size: 15px;
+    margin-top: 0;
+    margin-bottom: -5px;
+    margin-right: 0;
+    margin-left: 0;
+    color: #fff;
+    font-weight: 100;
+}

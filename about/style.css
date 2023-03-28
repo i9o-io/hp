@@ -1,0 +1,97 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: black;
+}
+
+
+#animation-container {
+    position: fixed;
+    top: 100%; /* 50 80%*/
+    left: 0;
+    transform: translateY(-50%);
+    margin: 0;
+    overflow: hidden;
+    height: 50%; /* 50 400px*/
+    width: 100%;
+    background-color: black;
+    z-index: -2;
+}
+
+/**/
+
+.square {
+    position: fixed;
+    width: 2px;
+    height: 2px;
+    background-color: #fff;
+    opacity: 0.9;
+}
+
+.text-container {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    text-align: right;
+}
+
+.iori {
+    position: absolute;
+    top: 240px;
+    left: 30px;
+    right: 50px;
+}
+
+.title {
+    font-size: 100px; /* 48 */
+    color: #fff;
+    margin: 0;
+    text-align: right;
+}
+
+.subtitle {
+    font-size: 30px;
+    color: #fff;
+    margin: 0;
+    font-weight: bold;
+    text-align: right;
+}
+
+a {
+  font-size: 15px;
+  color: #fff;
+  font-weight: bold;
+}
+
+h3 {
+    font-size: 25px;
+    color: #fff;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: -30px;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+h4 {
+    font-size: 15px;
+    margin-top: 0;
+    margin-bottom: -5px;
+    margin-right: 0;
+    margin-left: 0;
+    color: #fff;
+    font-weight:100;
+}
+
+p {
+    font-size: 16px;
+    margin-top: 15px;
+    margin-bottom: px;
+    margin-right: -5px;
+    margin-left: 15px;
+    color: #fff;
+
+    text-align: left;
+    
+}
