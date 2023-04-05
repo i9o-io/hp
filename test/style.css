@@ -17,8 +17,8 @@ nav a {
 .square {
     position: absolute;
     background-color: white;
-    width: 2.2px;
-    height: 2.2px;
+    width: 3px;
+    height: 3px;
 }
 
 .title {
