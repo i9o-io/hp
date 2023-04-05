@@ -1,14 +1,15 @@
 const numSquares = 2000;
 const squares = [];
-const centerOffset = 150; // 円の中心から表示しない範囲
-const minSpeed = 0.003; // 最小移動スピード
-const maxSpeed = 0.008; // 最大移動スピード
+//const centerOffset = 150; // 円の中心から表示しない範囲
+const minSpeed = 0.004; // 最小移動スピード
+const maxSpeed = 0.01; // 最大移動スピード
 
 for (let i = 0; i < numSquares; i++) {
     const square = document.createElement('div');
     square.classList.add('square');
 
-    const radius = Math.random() * (window.innerWidth / 2.3 - centerOffset) + centerOffset;
+    //const radius = Math.random() * (window.innerWidth / 2.3 - centerOffset) + centerOffset;
+    const radius = 200 + Math.random() * 150; // 150 200  200 100
     const angle = Math.random() * Math.PI * 2;
     const speed = Math.random() * (maxSpeed - minSpeed) + minSpeed;
     square.style.left = `${window.innerWidth / 2 + radius * Math.cos(angle)}px`;
