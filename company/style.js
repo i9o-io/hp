@@ -1,5 +1,5 @@
-const numWaves = 9;
-const numPoints = 200;
+const numWaves = 10;
+const numPoints = 300;
 const wavePoints = [];
 const waveSpeeds = [];
 const waveAmplitudes = [];
@@ -7,16 +7,16 @@ const waveLengths = [];
 const pageHeight = document.body.scrollHeight;
 
 for (let i = 0; i < numWaves; i++) {
-    waveSpeeds.push(Math.random() * 0.005 + 0.001);
-    waveAmplitudes.push(Math.random() * 50 + 30);
-    waveLengths.push(Math.random() * 0.5 + 0.2);
+    waveSpeeds.push(Math.random() * 1 + 0.003);
+    waveAmplitudes.push(Math.random() * 1 + 50);
+    waveLengths.push(Math.random() * 0.5 + 1);
 
     const wave = [];
     for (let j = 0; j < numPoints; j++) {
         const point = document.createElement('div');
         point.classList.add('square');
 
-        const posX = window.innerWidth / 6;
+        const posX = window.innerWidth / 2;
         const posY = j * (pageHeight + 2 * waveAmplitudes[i]) / (numPoints - 3) - waveAmplitudes[i];
         point.style.left = `${posX}px`;
         point.style.top = `${posY}px`;
