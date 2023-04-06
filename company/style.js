@@ -1,4 +1,4 @@
-const numWaves = 10;
+const numWaves = 4;
 const numPoints = 300;
 const wavePoints = [];
 const waveSpeeds = [];
