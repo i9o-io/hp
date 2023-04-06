@@ -1,8 +1,8 @@
 const numSquares = 1000;
 const squares = [];
 //const centerOffset = 150; // 円の中心から表示しない範囲
-const minSpeed = 0.008; // 最小移動スピード
-const maxSpeed = 0.02; // 最大移動スピード
+const minSpeed = 0.0008; // 最小移動スピード
+const maxSpeed = 0.011; // 最大移動スピード
 
 for (let i = 0; i < numSquares; i++) {
     const square = document.createElement('div');
