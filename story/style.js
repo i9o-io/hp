@@ -1,7 +1,7 @@
-const numSquares = 1000;
+const numSquares = 500;
 const squares = [];
 //const centerOffset = 150; // 円の中心から表示しない範囲
-const minSpeed = 0.001; // 最小移動スピード
+const minSpeed = 0.0005; // 最小移動スピード
 const maxSpeed = 0.004; // 最大移動スピード
 
 for (let i = 0; i < numSquares; i++) {
