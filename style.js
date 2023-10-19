@@ -16,7 +16,7 @@ function createSquare() {
     document.body.appendChild(square);
 
     // ランダムな速度を生成 (例: 0.5 から 2.5 の範囲で)
-    const speed = Math.random() * 10 + 6;
+    const speed = Math.random() * 10 + 1;
 
     resetSquare(square);
 
