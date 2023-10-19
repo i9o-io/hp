@@ -12,7 +12,7 @@ a {
 }
 
 .title {
-    font-size: 140px;
+    font-size: 110px;
 }
 
 urlFont1 {
@@ -23,8 +23,8 @@ urlFont1 {
 
 .square {
     position: absolute;
-    width: 3.5px;
-    height: 3.5px;
+    width: 5px;
+    height: 5px;
     background-color: white;
 }
 
